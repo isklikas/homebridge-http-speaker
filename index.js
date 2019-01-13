@@ -1,7 +1,6 @@
 "use strict";
 
 var Service, Characteristic, sm;
-const request = require("request");
 const SamsungMultiroom = require('samsung-multiroom');
 
 module.exports = function (homebridge) {
@@ -190,7 +189,9 @@ MULTIROOM_SPEAKER.prototype = {
     
     getServices: function() {
     	return [this.speakerService];
-    },
+    }
+    //Future proofing
+    /*,
 
     _httpRequest: function (url, body, method, callback) {
         request(
@@ -205,5 +206,5 @@ MULTIROOM_SPEAKER.prototype = {
             }
         )
     }
-
+	*/
 };
