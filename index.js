@@ -37,6 +37,7 @@ function MULTIROOM_SPEAKER(log, config, api) {
             .on("get", this.getVolume.bind(this))
             .on("set", this.setVolume.bind(this));
 
+/*
         this.informationService = new Service.AccessoryInformation();
 
         this.informationService
@@ -44,6 +45,7 @@ function MULTIROOM_SPEAKER(log, config, api) {
             .setCharacteristic(Characteristic.Model, "Samsung Soundbar")
             .setCharacteristic(Characteristic.SerialNumber, "SP01")
             .setCharacteristic(Characteristic.FirmwareRevision, "1.1.0");
+            */
     
     /*Future proof
     this.power = { enabled: false };
@@ -56,34 +58,8 @@ function MULTIROOM_SPEAKER(log, config, api) {
 
 MULTIROOM_SPEAKER.prototype = {
 
-    identify: function (callback) {
-        this.log("Identify requested!");
-        callback();
-    },
-
     getServices: function () {
         this.log("Creating speaker!");
-        var speakerService = new Service.Speaker(this.name);
-		/* Future proof
-        if (this.power.enabled) { // since im able to power off/on my speaker i decided to add the option to add the "On" Characteristic
-            this.log("... adding on characteristic");
-            speakerService
-                .addCharacteristic(new Characteristic.On())
-                .on("get", this.getPowerState.bind(this))
-                .on("set", this.setPowerState.bind(this));
-        }
-	*/
-        this.log("... configuring mute characteristic");
-        speakerService
-            .getCharacteristic(Characteristic.Mute)
-            .on("get", this.getMuteState.bind(this))
-            .on("set", this.setMuteState.bind(this));
-
-        this.log("... adding volume characteristic");
-        speakerService
-            .addCharacteristic(new Characteristic.Volume())
-            .on("get", this.getVolume.bind(this))
-            .on("set", this.setVolume.bind(this));
 
         var informationService = new Service.AccessoryInformation();
 
@@ -93,7 +69,7 @@ MULTIROOM_SPEAKER.prototype = {
             .setCharacteristic(Characteristic.SerialNumber, "SP01")
             .setCharacteristic(Characteristic.FirmwareRevision, "1.1.0");
 
-        return [informationService, speakerService];
+        return [informationService, this.speakerService];
     },
 
     getMuteState: function (callback) {
