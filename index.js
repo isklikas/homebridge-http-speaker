@@ -37,9 +37,9 @@ function MULTIROOM_SPEAKER(log, config, api) {
             .on("get", this.getVolume.bind(this))
             .on("set", this.setVolume.bind(this));
 
-        const informationService = new Service.AccessoryInformation();
+        this.informationService = new Service.AccessoryInformation();
 
-        informationService
+        this.informationService
             .setCharacteristic(Characteristic.Manufacturer, "Samsung")
             .setCharacteristic(Characteristic.Model, "Samsung Soundbar")
             .setCharacteristic(Characteristic.SerialNumber, "SP01")
@@ -63,8 +63,8 @@ MULTIROOM_SPEAKER.prototype = {
 
     getServices: function () {
         this.log("Creating speaker!");
-        const speakerService = new Service.Speaker(this.name);
-
+        var speakerService = new Service.Speaker(this.name);
+		/* Future proof
         if (this.power.enabled) { // since im able to power off/on my speaker i decided to add the option to add the "On" Characteristic
             this.log("... adding on characteristic");
             speakerService
@@ -72,7 +72,7 @@ MULTIROOM_SPEAKER.prototype = {
                 .on("get", this.getPowerState.bind(this))
                 .on("set", this.setPowerState.bind(this));
         }
-
+	*/
         this.log("... configuring mute characteristic");
         speakerService
             .getCharacteristic(Characteristic.Mute)
@@ -85,7 +85,7 @@ MULTIROOM_SPEAKER.prototype = {
             .on("get", this.getVolume.bind(this))
             .on("set", this.setVolume.bind(this));
 
-        const informationService = new Service.AccessoryInformation();
+        var informationService = new Service.AccessoryInformation();
 
         informationService
             .setCharacteristic(Characteristic.Manufacturer, "Samsung")
