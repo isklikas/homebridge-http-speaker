@@ -1,4 +1,4 @@
-# "homebridge-http-speaker" Plugin
+# "homebridge-multiroom-speaker" Plugin
 
 
 With this plugin you can create HomeKit speaker services which will communicate with your Samsung Soundbar.

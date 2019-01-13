@@ -1,23 +1,29 @@
 {
-  "name": "homebridge-http-speaker",
+  "name": "homebridge-multiroom-speaker",
   "version": "1.1.2",
   "license": "ISC",
-  "description": "Homebridge plugin to control a web-based speaker device",
+  "description": "Homebridge plugin to control a Samsung Multiroom Speaker",
+  "main": "index.js",
   "keywords": [
-    "homebridge-plugin"
+    "homebridge-plugin",
+    "samsung",
+    "multiroom"
   ],
   "engines": {
-    "node": ">=0.12.0",
+    "node": ">=6.0.0",
     "homebridge": ">=0.2.0"
   },
-  "author": {
-    "name": "Andi"
-  },
+  "author": "John Sklikas",
   "repository": {
     "type": "git",
-    "url": "git@github.com/Supereg/homebridge-http-speaker.git"
+    "url": "git@github.com/isklikas/homebridge-http-speaker.git"
   },
+  "bugs": {
+    "url": "https://github.com/isklikas/homebridge-http-speaker/issues"
+  },
+  "homepage": "https://github.com/isklikas/homebridge-http-speaker#readme",
   "dependencies": {
+    "samsung-multiroom": "^0.1.1",
     "request": "^2.65.0"
   },
   "devDependencies": {
