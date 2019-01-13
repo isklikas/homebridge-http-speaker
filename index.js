@@ -61,6 +61,7 @@ MULTIROOM_SPEAKER.prototype = {
     getServices: function () {
         this.log("Creating speaker!");
 
+/*
         var informationService = new Service.AccessoryInformation(this.name, "speakerService");
 
         informationService
@@ -68,8 +69,8 @@ MULTIROOM_SPEAKER.prototype = {
             .setCharacteristic(Characteristic.Model, "Samsung Soundbar")
             .setCharacteristic(Characteristic.SerialNumber, "SP01")
             .setCharacteristic(Characteristic.FirmwareRevision, "1.1.0");
-
-        return [informationService, this.speakerService];
+*/
+        return [this.informationService, this.speakerService];
     },
 
     getMuteState: function (callback) {
