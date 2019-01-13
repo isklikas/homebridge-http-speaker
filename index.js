@@ -53,7 +53,7 @@ MULTIROOM_SPEAKER.prototype = {
         this.log("Creating speaker!");
 
 
-        var informationService = new Service.AccessoryInformation(this.name, "informationService");
+        var informationService = new Service.AccessoryInformation();
 
         informationService
             .setCharacteristic(Characteristic.Manufacturer, "Samsung")
