@@ -7,10 +7,10 @@ const SamsungMultiroom = require('samsung-multiroom');
 module.exports = function (homebridge) {
     Service = homebridge.hap.Service;
     Characteristic = homebridge.hap.Characteristic;
-    homebridge.registerAccessory("homebridge-multiroom-speaker", "MULTIROOM-SPEAKER", MULTIROOM_SPEAKER);
+    homebridge.registerAccessory('homebridge-multiroom-speaker', 'MultiroomSpeaker', MULTIROOM_SPEAKER);
 };
 
-function MULTIROOM_SPEAKER(log, config, api) {
+function MULTIROOM_SPEAKER(log, config) {
     this.log = log;
     this.host = config['host'];
     this.name = config['name'];

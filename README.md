@@ -15,7 +15,7 @@ standalone Speaker services.
 First of all you should already have installed `Homebridge` on your device. Follow the instructions over at the
 [HomeBridge Repo](https://github.com/nfarina/homebridge)
 
-To install the `homebridge-http-speaker` plugin simply run `sudo npm install -g homebridge-multiroom-speaker`
+To install the `homebridge-multiroom-speaker` plugin simply run `sudo npm install -g homebridge-multiroom-speaker`
 
 ### Configuration
 
@@ -28,17 +28,10 @@ We will see what the Home App will do with it.
 ```
     "accessories": [
         {
-            "accessory": "MULTIROOM-SPEAKER",
+            "accessory": "MultiroomSpeaker",
             "name": "Speaker",
-            
             "host":"192.168.0.40",
             "port":"55001",
-            
-            "power": {
-                "statusUrl": "http://localhost/api/powerStatus",
-                "onUrl": "http://localhost/api/powerOn",
-                "offUrl": "http://localhost/api/powerOff"
-            }
         }
     ]
 ```
