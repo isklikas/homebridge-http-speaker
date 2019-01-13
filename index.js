@@ -9,7 +9,7 @@ module.exports = function (homebridge) {
     homebridge.registerAccessory('homebridge-multiroom-speaker', 'MultiroomSpeaker', MULTIROOM_SPEAKER);
 };
 
-function MULTIROOM_SPEAKER(log, config) {
+function MULTIROOM_SPEAKER(log, config, api) {
     this.log = log;
     this.host = config['host'];
     this.name = config['name'];
@@ -22,11 +22,36 @@ function MULTIROOM_SPEAKER(log, config) {
 
     this.volume = {};
     this.mute = {};
+    
+    this.speakerService = new Service.Speaker(this.name, "speakerService");
+    
+    this.log("... configuring mute characteristic");
+        this.speakerService
+            .getCharacteristic(Characteristic.Mute)
+            .on("get", this.getMuteState.bind(this))
+            .on("set", this.setMuteState.bind(this));
+
+        this.log("... adding volume characteristic");
+        this.speakerService
+            .addCharacteristic(new Characteristic.Volume())
+            .on("get", this.getVolume.bind(this))
+            .on("set", this.setVolume.bind(this));
+
+        const informationService = new Service.AccessoryInformation();
+
+        informationService
+            .setCharacteristic(Characteristic.Manufacturer, "Samsung")
+            .setCharacteristic(Characteristic.Model, "Samsung Soundbar")
+            .setCharacteristic(Characteristic.SerialNumber, "SP01")
+            .setCharacteristic(Characteristic.FirmwareRevision, "1.1.0");
+    
+    /*Future proof
     this.power = { enabled: false };
 
     if (config.power) { // if power is configured enable it
         this.power.enabled = true;
     }
+    */
 }
 
 MULTIROOM_SPEAKER.prototype = {
