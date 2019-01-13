@@ -37,15 +37,15 @@ function MULTIROOM_SPEAKER(log, config, api) {
             .on("get", this.getVolume.bind(this))
             .on("set", this.setVolume.bind(this));
 
-/*
-        this.informationService = new Service.AccessoryInformation();
+
+        this.informationService = new Service.AccessoryInformation(this.name, "speakerService");
 
         this.informationService
             .setCharacteristic(Characteristic.Manufacturer, "Samsung")
             .setCharacteristic(Characteristic.Model, "Samsung Soundbar")
             .setCharacteristic(Characteristic.SerialNumber, "SP01")
             .setCharacteristic(Characteristic.FirmwareRevision, "1.1.0");
-            */
+            
     
     /*Future proof
     this.power = { enabled: false };
@@ -61,7 +61,7 @@ MULTIROOM_SPEAKER.prototype = {
     getServices: function () {
         this.log("Creating speaker!");
 
-        var informationService = new Service.AccessoryInformation();
+        var informationService = new Service.AccessoryInformation(this.name, "speakerService");
 
         informationService
             .setCharacteristic(Characteristic.Manufacturer, "Samsung")
