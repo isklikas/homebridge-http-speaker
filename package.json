@@ -24,10 +24,5 @@
   "homepage": "https://github.com/isklikas/homebridge-http-speaker#readme",
   "dependencies": {
     "samsung-multiroom": "^0.1.1"
-  },
-  "devDependencies": {
-    "chai": "^3.4.1",
-    "chai-things": "^0.2.0",
-    "hap-nodejs": "0.4.27"
   }
 }
