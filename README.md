@@ -31,7 +31,7 @@ We will see what the Home App will do with it.
             "accessory": "MultiroomSpeaker",
             "name": "Speaker",
             "host":"192.168.0.40",
-            "port":"55001",
+            "port":"55001"
         }
     ]
 ```
